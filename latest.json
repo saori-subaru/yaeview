@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "notes": "YAE View Tauri版 配布テスト",
+  "pub_date": "2026-08-06T04:20:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRai9wOXJzTGF3eVl0L3R1dlc1WUxXZ2RiR25aZFJPc2pEK2tMMDRBcEZCSHFwa1kxY2ZiMlJoczZqRnQwODBGSEV6d2RXcXdpT2FqT3JGN2ZDRmRDN2JVajNNYmlGUFFFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1OTU3NjUzCWZpbGU6eWFlLXZpZXctdGF1cmlfMC4xLjBfeDY0LXNldHVwLmV4ZQpZRnROYUI3KzJ1bURQcXJ6UThIS09WOS9YOVNSdTN0OTdmSU9yazYzNWlqSWk3dGtCUC9FcXlqMlhxc1l4aUlwZjRkMTNEVzIyd2JkNUg1NDFxVW5BZz09Cg==",
+      "url": "https://github.com/saori-subaru/yaeview/releases/download/v0.1.0/yae-view-tauri_0.1.0_x64-setup.exe"
+    }
+  }
+}
