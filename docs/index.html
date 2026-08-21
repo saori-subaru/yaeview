@@ -800,15 +800,11 @@ fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
    opens a pre-filled mail draft instead - the same thing the app does
    today - so the page is never a dead end.
    --------------------------------------------------------------- */
-/* 送信先の設定。使うサービスに応じて、どちらか一方を埋めれば動きます。
+/* 送信先。Apps Script をウェブアプリとしてデプロイして出てくる
+   ".../exec" で終わるURLを入れる。中身は site/form-backend.gs。
 
-   Formspree の場合  … FORM_ENDPOINT に "https://formspree.io/f/xxxxxxx"
-   Web3Forms の場合  … FORM_ACCESS_KEY に受け取ったキー（FORM_ENDPOINT は空のまま）
-
-   どちらも空の間は、メールの下書きが開きます。 */
-const FORM_ACCESS_KEY = "";
-const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-const FORM_ENDPOINT = FORM_ACCESS_KEY ? WEB3FORMS_ENDPOINT : "";
+   空の間はメールの下書きが開くので、設定前でも行き止まりにはならない。 */
+const FORM_ENDPOINT = "";
 
 const REPORT_TO = ["yaeview", "gmail.com"].join("@");
 
@@ -850,7 +846,6 @@ if (form) {
     if (form._gotcha.value) return;              // a bot filled the hidden field
 
     const data = new FormData();
-    if (FORM_ACCESS_KEY) data.append("access_key", FORM_ACCESS_KEY);
     data.append("内容", body);
     data.append("記録", form.log.value.trim());
     data.append("返信先", form.contact.value.trim());
@@ -870,10 +865,17 @@ if (form) {
     btn.disabled = true;
     btn.textContent = "送信中…";
     try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: "POST", body: data, headers: { Accept: "application/json" }
-      });
+      // FormData のみ、独自ヘッダーなし。こうしておくとブラウザが
+      // 事前確認の問い合わせを挟まないので、Apps Script 側で
+      // 受け口を余分に用意しなくて済む
+      const res = await fetch(FORM_ENDPOINT, { method: "POST", body: data });
       if (!res.ok) throw new Error(res.status);
+
+      // シートに書けなかった場合は ok:false が返る。
+      // 読めなかったときは黙って成功扱いにする（送信自体は届いている）
+      let payload = null;
+      try { payload = await res.json(); } catch (ignored) {}
+      if (payload && payload.ok === false) throw new Error(payload.error || "rejected");
       form.reset();
       diag.textContent = lines.join("\n");
       status.textContent = "送信しました。ありがとうございます。";
