@@ -29,6 +29,7 @@
   --muted:      rgba(233, 238, 245, 0.56);
   --faint:      rgba(233, 238, 245, 0.34);
   --accent:     #4aa8e0;
+  --accent-tint: rgba(74, 168, 224, 0.10);
   --good:       #4cc38a;
 
   --sans: "IBM Plex Sans JP", "Yu Gothic UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
@@ -266,13 +267,17 @@ kbd {
 .fmt-group + .fmt-group { margin-top: 26px; padding-top: 26px; border-top: 1px solid var(--line); }
 .fmt-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; color: var(--faint); padding-top: 6px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+/* Accent rather than muted grey: at 13px the muted tone only reaches
+   5.7:1 against the ground, and the accent reaches 6.8:1. All of them,
+   so none reads as more supported than the rest. */
 .chip {
   font-family: var(--mono);
   font-size: 13px;
   padding: 4px 11px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(74, 168, 224, 0.34);
   border-radius: 3px;
-  color: var(--muted);
+  color: var(--accent);
+  background: var(--accent-tint);
 }
 .fmt-note { margin-top: 30px; font-size: 14px; color: var(--faint); max-width: var(--measure); }
 
