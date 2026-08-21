@@ -151,9 +151,11 @@ p { margin: 0; }
 .meta { font-family: var(--mono); font-size: 13px; color: var(--faint); line-height: 1.6; }
 .meta b { color: var(--muted); font-weight: 500; }
 
-/* --- app-framed media ----------------------------------------- */
-/* A thin abstraction of the product's own chrome, so the film reads
-   as the application rather than as an embedded clip. */
+/* --- framed media --------------------------------------------- */
+/* Just a border. This used to carry a mock title bar with the app's
+   icon and name, which stopped being true when the real title bar was
+   rearranged - invented chrome that no longer matches the product is
+   worse than none. The film shows the application full frame anyway. */
 .frame {
   margin-top: clamp(40px, 6vw, 68px);
   border: 1px solid var(--line-firm);
@@ -161,20 +163,6 @@ p { margin: 0; }
   overflow: hidden;
   background: var(--surface);
 }
-.frame .bar {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 0 14px;
-  height: 36px;
-  border-bottom: 1px solid var(--line);
-  font-size: 12px;
-  color: var(--faint);
-  font-family: var(--mono);
-}
-.frame .bar img { width: 15px; height: 15px; border-radius: 3px; }
-.frame .bar .dots { margin-left: auto; display: flex; gap: 7px; }
-.frame .bar .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-firm); }
 .frame video, .frame img { width: 100%; }
 
 /* --- thesis --------------------------------------------------- */
@@ -434,10 +422,6 @@ footer a:hover { color: var(--text); }
       </div>
 
       <div class="frame">
-        <div class="bar">
-          <img src="img/icon.png" alt="">Yae View
-          <span class="dots"><i></i><i></i><i></i></span>
-        </div>
         <video src="img/yae-view.mp4" poster="img/poster.jpg" controls preload="none" playsinline></video>
       </div>
     </div>
