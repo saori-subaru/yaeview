@@ -635,9 +635,6 @@ footer a:hover { color: var(--text); }
         </div>
       </div>
 
-      <!-- 音声対応がリリースに入ったら、この囲みを外すだけ。
-           まだ出ていない機能を先に載せると、いまの版を使っている人には
-           「無い機能」に見えるので、それまでは伏せておく。
       <div class="fmt-group rise">
         <p class="fmt-label">音声</p>
         <div class="chips">
@@ -646,7 +643,6 @@ footer a:hover { color: var(--text); }
           <span class="chip">opus</span>
         </div>
       </div>
-      -->
 
       <div class="fmt-group rise">
         <p class="fmt-label">文書</p>
@@ -792,7 +788,7 @@ for (const el of document.querySelectorAll("[data-version-plain]")) el.textConte
    today - so the page is never a dead end.
    --------------------------------------------------------------- */
 const FORM_ENDPOINT = "";
-const REPORT_TO = "yaeview@gmail.com";
+const REPORT_TO = ["yaeview", "gmail.com"].join("@");
 
 const form = document.getElementById("reportForm");
 if (form) {
