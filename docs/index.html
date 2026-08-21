@@ -424,7 +424,7 @@ footer a:hover { color: var(--text); }
         </a>
         <p class="meta">
           <b data-version>v0.1.19</b> ／ Windows 10・11（64bit）<br>
-          インストーラ形式・約19MB
+          インストーラ形式<span data-size></span>
         </p>
       </div>
 
@@ -748,11 +748,48 @@ footer a:hover { color: var(--text); }
 // set here rather than as an attribute.
 document.documentElement.lang = "ja";
 
-// One place to change per release. Everything on the page reads from here.
-const RELEASE = { version: "0.1.19" };
+/* ---------------------------------------------------------------
+   Release details.
 
-for (const el of document.querySelectorAll("[data-version]")) el.textContent = "v" + RELEASE.version;
-for (const el of document.querySelectorAll("[data-version-plain]")) el.textContent = RELEASE.version;
+   RELEASE is the fallback shown before - or instead of - the lookup
+   below. Keep it roughly current, but it no longer has to be exact.
+   --------------------------------------------------------------- */
+const RELEASE = { version: "0.1.19" };
+const REPO = "saori-subaru/yaeview";
+
+const showRelease = ({ version, size, url }) => {
+  for (const el of document.querySelectorAll("[data-version]")) el.textContent = "v" + version;
+  for (const el of document.querySelectorAll("[data-version-plain]")) el.textContent = version;
+  for (const el of document.querySelectorAll("[data-size]")) {
+    el.textContent = size ? `・約${Math.round(size / 1e6)}MB` : "";
+  }
+  if (url) {
+    for (const a of document.querySelectorAll("a.download")) {
+      a.href = url;
+      a.setAttribute("download", "");
+    }
+  }
+};
+
+showRelease(RELEASE);
+
+// Hand over the installer itself rather than a page about it. The filename
+// carries the version, so the URL has to be looked up rather than guessed.
+// Any failure leaves the button pointing at the releases page, which works.
+fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
+  headers: { Accept: "application/vnd.github+json" }
+})
+  .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+  .then((rel) => {
+    const exe = (rel.assets || []).find((a) => /\.exe$/i.test(a.name));
+    if (!exe) return;
+    showRelease({
+      version: String(rel.tag_name || "").replace(/^v/, "") || RELEASE.version,
+      size: exe.size,
+      url: exe.browser_download_url
+    });
+  })
+  .catch(() => { /* keep the fallback */ });
 
 /* ---------------------------------------------------------------
    Report form.
