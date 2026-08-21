@@ -314,21 +314,6 @@ kbd {
 .field > label { font-size: 14px; font-weight: 600; }
 .field .hint { font-size: 13px; color: var(--faint); }
 
-.kinds { display: flex; gap: 10px; flex-wrap: wrap; }
-.kinds label {
-  position: relative;
-  padding: 9px 20px;
-  border: 1px solid var(--line-firm);
-  border-radius: 3px;
-  font-size: 14.5px;
-  color: var(--muted);
-  cursor: pointer;
-  transition: border-color 120ms ease, color 120ms ease;
-}
-.kinds input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-.kinds label:has(input:checked) { border-color: var(--accent); color: var(--accent); }
-.kinds label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
-
 .form input[type="text"], .form input[type="email"], .form textarea {
   width: 100%;
   font: inherit;
@@ -700,18 +685,9 @@ footer a:hover { color: var(--text); }
 
       <form class="form rise" id="reportForm" novalidate>
         <div class="field">
-          <label id="kindLabel">種別</label>
-          <div class="kinds" role="radiogroup" aria-labelledby="kindLabel">
-            <label>不具合<input type="radio" name="kind" value="不具合" checked></label>
-            <label>要望<input type="radio" name="kind" value="要望"></label>
-            <label>その他<input type="radio" name="kind" value="その他"></label>
-          </div>
-        </div>
-
-        <div class="field">
           <label for="body">内容</label>
           <textarea id="body" name="body" required
-            placeholder="何をしたときに、何が起きたかを書いてください。&#10;例）PSDの入ったフォルダを4分割の左上に入れて、ホイールで送っていたら3枚目で表示が消えた"></textarea>
+            placeholder="うまくいかないこと、こうなってほしいこと、どちらでも。両方でも構いません。&#10;&#10;例）PSDの入ったフォルダを4分割の左上に入れて、ホイールで送っていたら3枚目で表示が消えた&#10;例）パネルごとに表示倍率を覚えていてほしい"></textarea>
         </div>
 
         <div class="field">
@@ -827,20 +803,18 @@ if (form) {
     }
     if (form._gotcha.value) return;              // a bot filled the hidden field
 
-    const kind = form.kind.value;
     const data = new FormData();
-    data.append("種別", kind);
     data.append("内容", body);
     data.append("記録", form.log.value.trim());
     data.append("返信先", form.contact.value.trim());
     data.append("環境", diag.textContent.trim());
-    data.append("subject", "YAE View の" + kind);
+    data.append("subject", "YAE View の不具合・要望");
 
     if (!FORM_ENDPOINT) {
       const text = [body, "", "----------------", diag.textContent.trim(),
                     form.log.value.trim()].join("\n");
       location.href = "mailto:" + REPORT_TO
-        + "?subject=" + encodeURIComponent("YAE View の" + kind)
+        + "?subject=" + encodeURIComponent("YAE View の不具合・要望")
         + "&body=" + encodeURIComponent(text.slice(0, 1800));
       return;
     }
