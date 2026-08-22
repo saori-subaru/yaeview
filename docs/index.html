@@ -202,6 +202,47 @@ p { margin: 0; }
 }
 .frame video, .frame img { width: 100%; }
 
+/* --- the film's play button ------------------------------------ */
+/* The native control bar puts a small play button in the corner and
+   sits a grey strip over the poster. The application itself shows a
+   big triangle over the whole frame, so the site does the same.
+
+   The button is added by script, not written here: without script the
+   video keeps its native controls and still plays. Adding the button
+   in the markup would leave a dead button on a page whose script
+   failed to run. */
+.player { position: relative; }
+
+.player .play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: rgba(0, 0, 0, 0.34);
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+}
+.player .play:hover { background: rgba(0, 0, 0, 0.46); }
+.player .play:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
+
+.player .play svg {
+  width: clamp(58px, 7.5vw, 92px);
+  height: auto;
+  /* the poster is light in places, so the triangle carries its own edge */
+  filter: drop-shadow(0 3px 14px rgba(0, 0, 0, 0.55));
+  transition: transform 0.18s ease;
+}
+.player .play:hover svg { transform: scale(1.06); }
+
+@media (prefers-reduced-motion: reduce) {
+  .player .play, .player .play svg { transition: none; }
+  .player .play:hover svg { transform: none; }
+}
+
 /* --- thesis --------------------------------------------------- */
 .thesis { padding: clamp(56px, 8vw, 96px) 0; border-top: 1px solid var(--line); }
 .thesis h2 { font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.03em; max-width: 20em; }
@@ -465,7 +506,9 @@ footer a:hover { color: var(--text); }
       </div>
 
       <div class="frame">
-        <video src="img/yae-view.mp4" poster="img/poster.jpg" controls preload="none" playsinline></video>
+        <div class="player">
+          <video src="img/yae-view.mp4" poster="img/poster.jpg" controls preload="none" playsinline></video>
+        </div>
       </div>
     </div>
   </section>
@@ -779,6 +822,48 @@ footer a:hover { color: var(--text); }
 // the page ships as a fragment (an artifact host supplies <html>), so it is
 // set here rather than as an attribute.
 document.documentElement.lang = "ja";
+
+/* ---------------------------------------------------------------
+   The film's play button.
+
+   Built here rather than in the markup so that a page whose script
+   never runs keeps the native controls and stays playable, instead of
+   showing a button that does nothing.
+
+   Once playback starts the button is gone for good and the native
+   controls take over - bringing it back on every pause would fight
+   with the seek bar.
+   --------------------------------------------------------------- */
+for (const box of document.querySelectorAll(".player")) {
+  const video = box.querySelector("video");
+  if (!video) continue;
+
+  video.controls = false;
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "play";
+  btn.setAttribute("aria-label", "動画を再生");
+  btn.innerHTML = '<svg viewBox="0 0 100 100" aria-hidden="true">'
+    + '<polygon points="33,20 80,50 33,80" fill="#fff"></polygon></svg>';
+
+  const start = () => {
+    video.controls = true;
+    btn.remove();
+    video.play().catch(() => {
+      // blocked or unsupported - leave the native controls in charge
+    });
+  };
+
+  btn.addEventListener("click", start);
+  // started some other way (keyboard on the video, a deep link) - get out of the way
+  video.addEventListener("play", () => {
+    video.controls = true;
+    btn.remove();
+  }, { once: true });
+
+  box.appendChild(btn);
+}
 
 /* ---------------------------------------------------------------
    Release details.
