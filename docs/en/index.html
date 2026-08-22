@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <title>Yae View</title>
-<meta name="description" content="画像・動画・PDFを並べて確かめる、Windows用のビューア。">
+<meta name="description" content="A Windows viewer for comparing images, video and PDFs side by side.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="img/icon.png">
 <link rel="alternate" hreflang="ja" href="https://saori-subaru.github.io/yaeview/">
@@ -428,12 +428,12 @@ footer a:hover { color: var(--text); }
   <div class="wrap">
     <span class="mark"><img src="img/icon.png" alt="">Yae View</span>
     <nav>
-      <a href="#features">できること</a>
-      <a href="#formats">対応形式</a>
-      <a href="#install">インストール</a>
-      <a href="#report">不具合・要望</a>
+      <a href="#features">Features</a>
+      <a href="#formats">Formats</a>
+      <a href="#install">Install</a>
+      <a href="#report">Feedback</a>
     </nav>
-    <a class="lang" href="en/" hreflang="en" lang="en">English</a>
+    <a class="lang" href="../" hreflang="ja" lang="ja">日本語</a>
   </div>
 </header>
 
@@ -442,10 +442,11 @@ footer a:hover { color: var(--text); }
     <div class="wrap">
       <div class="hero-top">
         <div>
-          <h1>画像も動画もPDFも、<br><span class="soft">並べて見比べる。</span></h1>
+          <h1>Images, video, PDFs.<br><span class="soft">Side by side.</span></h1>
           <p class="lede">
-            1つの画面に最大8枚まで並べられます。パネルごとに別のフォルダを開けるので、
-            フォルダを行き来せずに、そのまま見比べられます。
+            Up to eight panels on one screen. Each panel opens its own folder, so files
+            stored in completely different places can be compared without navigating
+            back and forth.
           </p>
         </div>
         <img class="hero-icon" src="img/icon.png" alt="" width="512" height="512">
@@ -456,11 +457,11 @@ footer a:hover { color: var(--text); }
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 20h16"/>
           </svg>
-          Windows版をダウンロード
+          Download for Windows
         </a>
         <p class="meta">
-          <b data-version>v0.1.19</b> ／ Windows 10・11（64bit）<br>
-          インストーラ形式<span data-size></span>
+          <b data-version>v0.1.19</b> / Windows 10 &amp; 11 (64-bit)<br>
+          Installer<span data-size></span>
         </p>
       </div>
 
@@ -472,19 +473,19 @@ footer a:hover { color: var(--text); }
 
   <section class="thesis">
     <div class="wrap">
-      <h2 class="rise">1枚ずつ開いて、閉じて、また開く。<br>その往復をなくすために作りました。</h2>
+      <h2 class="rise">Open one file, close it, open the next.<br>Yae View exists to end that round trip.</h2>
       <div class="pillars rise">
         <div class="pillar">
-          <h3>並べたまま比べる</h3>
-          <p>パネルごとに別のフォルダを開けます。離れた場所にある2枚でも、並べたまま行き来できます。</p>
+          <h3>Compare without closing</h3>
+          <p>Every panel keeps its own folder. Two files stored far apart stay on screen together, and you move through both from there.</p>
         </div>
         <div class="pillar">
-          <h3>形式を意識しない</h3>
-          <p>PSD も CLIP STUDIO のファイルも RAW も、変換せずにそのまま開きます。動画とPDFも同じ画面に混ざります。</p>
+          <h3>Formats stop mattering</h3>
+          <p>PSD, CLIP STUDIO files and RAW all open as they are, with no export step. Video and PDFs sit in the same grid.</p>
         </div>
         <div class="pillar">
-          <h3>その場で書き込む</h3>
-          <p>気づいたことは開いたまま書き込めます。PDFなら、書き込みごと1つのファイルに書き出せます。</p>
+          <h3>Mark it up in place</h3>
+          <p>Note what you spot without leaving the file. For PDFs, your notes export baked into a single document.</p>
         </div>
       </div>
     </div>
@@ -495,66 +496,66 @@ footer a:hover { color: var(--text); }
   <section class="step">
     <div class="wrap step-grid rise">
       <div class="copy">
-        <p class="eyebrow"><span class="n">01</span> 入れる</p>
-        <h2>フォルダごと、放り込むだけ。</h2>
-        <p>エクスプローラーから投げ込めば、そのまま並びます。1ファイルずつ選ぶ必要も、読み込みを待つ必要もありません。</p>
+        <p class="eyebrow"><span class="n">01</span> Load</p>
+        <h2>Drop in a whole folder.</h2>
+        <p>Drag from Explorer and the panels fill straight away. No picking files one at a time, no waiting for an import.</p>
         <ul>
-          <li>フォルダでも、ファイル単体でも<b>ドラッグ＆ドロップ</b></li>
-          <li>パネルを<b>ダブルクリック</b>して選ぶこともできます</li>
-          <li>プロジェクトごとに<b>タブと色</b>を付けて置いておけます</li>
+          <li><b>Drag and drop</b> a folder or a single file</li>
+          <li>Or <b>double-click</b> a panel to browse for one</li>
+          <li>Keep whole sets of panels as <b>colour-coded tabs</b></li>
         </ul>
       </div>
-      <div class="shot"><img src="img/drop.jpg" alt="空のパネルにフォルダからファイルをドロップしている画面" loading="lazy"></div>
+      <div class="shot"><img src="img/drop.jpg" alt="Files being dropped from a folder onto empty panels" loading="lazy"></div>
     </div>
   </section>
 
   <section class="step">
     <div class="wrap step-grid rise">
       <div class="copy">
-        <p class="eyebrow"><span class="n">02</span> 並べる</p>
-        <h2>1〜8分割。<br>用途に合わせて、すぐ切り替え。</h2>
-        <p>分割数はいつでも変えられます。パネルは掴んで入れ替えられ、いらないものは範囲選択してまとめて消せます。</p>
+        <p class="eyebrow"><span class="n">02</span> Arrange</p>
+        <h2>One to eight panels,<br>switched in a click.</h2>
+        <p>Change the split whenever you like. Panels can be dragged into a new order, and anything you no longer need can be selected as a block and cleared at once.</p>
         <ul>
-          <li>パネルを<b>ドラッグして並べ替え</b></li>
-          <li><kbd>Shift</kbd>＋ドラッグで<b>複数選択</b>、まとめて削除</li>
-          <li>各パネルが<b>別々のフォルダ</b>を持てます</li>
+          <li><b>Drag panels</b> to reorder them</li>
+          <li><kbd>Shift</kbd>-drag to <b>select several</b> and delete them together</li>
+          <li>Each panel holds <b>its own folder</b></li>
         </ul>
       </div>
-      <div class="shot"><img src="img/grid.jpg" alt="8分割で画像・動画・PDFを並べた画面" loading="lazy"></div>
+      <div class="shot"><img src="img/grid.jpg" alt="Images, video and a PDF arranged across eight panels" loading="lazy"></div>
     </div>
   </section>
 
   <section class="step">
     <div class="wrap step-grid rise">
       <div class="copy">
-        <p class="eyebrow"><span class="n">03</span> 送る</p>
-        <h2>ホイールひとつ。<br>画像は送り、動画はコマ送り。</h2>
-        <p>パネルの上でホイールを回すだけです。中身が画像なら次の1枚へ、動画なら<b>1コマずつ</b>前後に動きます。持ち替えも、モード切り替えもありません。</p>
+        <p class="eyebrow"><span class="n">03</span> Advance</p>
+        <h2>One wheel.<br>Next image or frame.</h2>
+        <p>Just scroll over a panel. On an image it moves to the next file; on a video it steps <b>one frame</b> at a time. Nothing to switch, nothing to hold down.</p>
         <ul>
-          <li>画像・PDF は<b>次のファイルへ</b></li>
-          <li>動画は<b>1コマ送り／1コマ戻し</b></li>
-          <li><kbd>Shift</kbd>や<kbd>Ctrl</kbd>を足すと30秒・10秒単位で移動</li>
+          <li>Images and PDFs move <b>to the next file</b></li>
+          <li>Video steps <b>one frame forward or back</b></li>
+          <li>Hold <kbd>Shift</kbd> or <kbd>Ctrl</kbd> to jump in 30- or 10-second steps</li>
         </ul>
       </div>
-      <div class="shot"><img src="img/frames.jpg" alt="フルスクリーンで動画をコマ送りしている画面" loading="lazy"></div>
+      <div class="shot"><img src="img/frames.jpg" alt="A video being stepped through frame by frame in full screen" loading="lazy"></div>
     </div>
   </section>
 
   <section class="step">
     <div class="wrap step-grid rise">
       <div class="copy">
-        <p class="eyebrow"><span class="n">04</span> 確かめる</p>
-        <h2>気になる1枚は、<br>ダブルクリックで大きく。</h2>
-        <p>開いたまま拡大して、細部まで確かめられます。</p>
+        <p class="eyebrow"><span class="n">04</span> Inspect</p>
+        <h2>Double-click any panel<br>to fill the screen.</h2>
+        <p>Zoom in and check the detail without ever leaving the set.</p>
         <ul>
-          <li><b>拡大・90度回転・左右反転・トリミング</b></li>
-          <li><kbd>B</kbd>で<b>しおり</b>。<kbd>Shift</kbd>＋<kbd>←</kbd><kbd>→</kbd>で前後のしおりへ飛べます</li>
-          <li>編集モードで<b>手書き・図形・文字・画像の貼り付け</b></li>
+          <li><b>Zoom, rotate, flip and crop</b></li>
+          <li><kbd>B</kbd> drops a <b>bookmark</b>; <kbd>Shift</kbd>+<kbd>&larr;</kbd><kbd>&rarr;</kbd> jumps between them</li>
+          <li>Edit mode adds <b>freehand, shapes, text and pasted images</b></li>
         </ul>
       </div>
       <div class="shot shot-pair">
-        <img src="img/fullscreen.jpg" alt="フルスクリーンで画像を拡大表示している画面" loading="lazy">
-        <img src="img/annotate.jpg" alt="画像に赤い円と矢印を書き込んでいる画面" loading="lazy">
+        <img src="img/fullscreen.jpg" alt="An image zoomed in full screen" loading="lazy">
+        <img src="img/annotate.jpg" alt="A red circle and arrow being drawn onto an image" loading="lazy">
       </div>
     </div>
   </section>
@@ -562,50 +563,50 @@ footer a:hover { color: var(--text); }
   <section class="step">
     <div class="wrap step-grid rise">
       <div class="copy">
-        <p class="eyebrow"><span class="n">05</span> 出す</p>
-        <h2>並べ替えたページを、<br>そのまま1つのPDFに。</h2>
-        <p>ページを掴んで入れ替え、いらないページを外して書き出せます。書き込んだメモも一緒に焼き込まれます。</p>
+        <p class="eyebrow"><span class="n">05</span> Export</p>
+        <h2>Reorder the pages,<br>export one PDF.</h2>
+        <p>Drag pages into a new order, drop the ones you do not need, and export. Anything you drew or wrote is baked in.</p>
         <ul>
-          <li>全ページを続けて読める<b>連続表示</b></li>
-          <li>文字が入っているPDFは<b>選択してコピー</b>できます</li>
-          <li>そのまま<b>印刷</b>にも回せます</li>
+          <li><b>Continuous scrolling</b> through every page</li>
+          <li>Text-based PDFs can be <b>selected and copied</b></li>
+          <li>Send straight to <b>print</b></li>
         </ul>
       </div>
-      <div class="shot"><img src="img/pdfexport.jpg" alt="PDFのページを並べ替えて書き出す画面" loading="lazy"></div>
+      <div class="shot"><img src="img/pdfexport.jpg" alt="PDF pages being reordered before export" loading="lazy"></div>
     </div>
   </section>
 
   <section class="step">
     <div class="wrap step-grid rise">
       <div class="copy">
-        <p class="eyebrow"><span class="n">06</span> 渡す</p>
-        <h2>QRひとつで、手元の端末へ。</h2>
-        <p>同じネットワークにつながっていれば、表示中のファイルをそのままスマートフォンやタブレットで開けます。アップロードも、アカウントもいりません。</p>
+        <p class="eyebrow"><span class="n">06</span> Share</p>
+        <h2>One QR code to the device in your hand.</h2>
+        <p>As long as both are on the same network, whatever is on screen opens on a phone or tablet. No upload, no account.</p>
         <ul>
-          <li>右クリックから<b>QRコードを表示</b></li>
-          <li>共有は<b>その場で止められます</b></li>
-          <li>初回はWindowsの<b>ファイアウォールの許可</b>が必要です</li>
+          <li>Right-click to <b>show the QR code</b></li>
+          <li>Sharing can be <b>stopped at any moment</b></li>
+          <li>The first time, Windows asks you to <b>allow it through the firewall</b></li>
         </ul>
       </div>
-      <div class="shot"><img src="img/lanshare.jpg" alt="QRコードで別の端末に共有している画面" loading="lazy"></div>
+      <div class="shot"><img src="img/lanshare.jpg" alt="A QR code being used to share with another device" loading="lazy"></div>
     </div>
   </section>
 
   <section class="extras">
     <div class="wrap">
-      <h2 class="rise">ほかにも</h2>
+      <h2 class="rise">Also included</h2>
       <div class="cards rise">
         <div class="card">
-          <h3>一括リネーム</h3>
-          <p>連番や置換をかけながら、結果をその場で確認できます。かけ違えても元に戻せます。</p>
+          <h3>Batch rename</h3>
+          <p>Numbering and find-and-replace, with the resulting names previewed as you type. If it comes out wrong, one step puts it back.</p>
         </div>
         <div class="card">
-          <h3>見開きで読む</h3>
-          <p>2ページを並べて表示します。綴じ方向は左右どちらにも設定できるので、右から読む本もそのまま追えます。</p>
+          <h3>Two-page spreads</h3>
+          <p>Read two pages at once. Binding direction goes either way, so right-to-left books follow correctly.</p>
         </div>
         <div class="card">
-          <h3>常駐して、すぐ呼び出す</h3>
-          <p>×で閉じてもタスクトレイに残ります。<kbd>Ctrl</kbd>＋<kbd>Shift</kbd>＋<kbd>A</kbd>でいつでも前に出せます（変更可）。</p>
+          <h3>Always a keystroke away</h3>
+          <p>Closing the window leaves Yae View in the system tray. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> brings it back, and the shortcut can be changed.</p>
         </div>
       </div>
     </div>
@@ -613,14 +614,14 @@ footer a:hover { color: var(--text); }
 
   <section class="formats" id="formats">
     <div class="wrap">
-      <h2 class="rise">対応形式</h2>
+      <h2 class="rise">Supported formats</h2>
       <p class="fmt-lede rise">
-        PSD・PSB、CLIP STUDIO PAINT の .clip、Canon・Nikon・Sony・富士フイルムなどのRAWも、
-        書き出しをはさまずにそのまま開きます。
+        PSD and PSB, CLIP STUDIO PAINT .clip files, and RAW from Canon, Nikon, Sony,
+        Fujifilm and others all open directly, with no export step in between.
       </p>
 
       <div class="fmt-group rise">
-        <p class="fmt-label">画像</p>
+        <p class="fmt-label">Images</p>
         <div class="chips">
           <span class="chip">jpg</span><span class="chip">png</span><span class="chip">gif</span>
           <span class="chip">webp</span><span class="chip">bmp</span><span class="chip">avif</span>
@@ -643,7 +644,7 @@ footer a:hover { color: var(--text); }
       </div>
 
       <div class="fmt-group rise">
-        <p class="fmt-label">動画</p>
+        <p class="fmt-label">Video</p>
         <div class="chips">
           <span class="chip">mp4</span><span class="chip">mov</span><span class="chip">m4v</span>
           <span class="chip">webm</span><span class="chip">mkv</span><span class="chip">avi</span>
@@ -653,7 +654,7 @@ footer a:hover { color: var(--text); }
       </div>
 
       <div class="fmt-group rise">
-        <p class="fmt-label">音声</p>
+        <p class="fmt-label">Audio</p>
         <div class="chips">
           <span class="chip">mp3</span><span class="chip">wav</span><span class="chip">flac</span>
           <span class="chip">m4a</span><span class="chip">aac</span><span class="chip">oga</span>
@@ -662,87 +663,88 @@ footer a:hover { color: var(--text); }
       </div>
 
       <div class="fmt-group rise">
-        <p class="fmt-label">文書</p>
+        <p class="fmt-label">Documents</p>
         <div class="chips"><span class="chip">pdf</span></div>
       </div>
 
       <p class="fmt-note rise">
-        CLIP STUDIO PAINT の <code style="font-family:var(--mono)">.clip</code> は、ファイルに保存されているプレビュー画像を取り出して表示します。
-        RAW は現像ライブラリを通して読んでいるため、発売されたばかりの機種は読めないことがあります。
-        開けないファイルがあれば、下のフォームから教えてください。
+        CLIP STUDIO PAINT <code style="font-family:var(--mono)">.clip</code> files are shown using the preview image stored inside them.
+        RAW is decoded through a conversion library, so a camera released very recently may not be readable yet.
+        If a file will not open, please tell me using the form below.
       </p>
     </div>
   </section>
 
   <section class="install" id="install">
     <div class="wrap">
-      <h2 class="rise">インストール</h2>
+      <h2 class="rise">Install</h2>
       <ol class="steps rise">
         <li>
           <div>
-            <h3>インストーラをダウンロードして実行</h3>
-            <p><code style="font-family:var(--mono)">yae-view-tauri_<span data-version-plain>0.1.19</span>_x64-setup.exe</code> をダブルクリックします。</p>
+            <h3>Download the installer and run it</h3>
+            <p>Double-click <code style="font-family:var(--mono)">yae-view-tauri_<span data-version-plain>0.1.19</span>_x64-setup.exe</code>.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3>「WindowsによってPCが保護されました」と出たら</h3>
-            <p><b>詳細情報</b> → <b>実行</b> の順に押してください。開発元の署名を付けていないため出る警告です。</p>
+            <h3>If &ldquo;Windows protected your PC&rdquo; appears</h3>
+            <p>Click <b>More info</b>, then <b>Run anyway</b>. The warning appears because the installer is not code-signed.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3>スタートメニューから起動</h3>
-            <p>「yae-view-tauri」で検索します。画像や動画を右クリックして「プログラムから開く」からでも開けます。</p>
+            <h3>Launch it from the Start menu</h3>
+            <p>Search for &ldquo;yae-view-tauri&rdquo;. You can also right-click an image or video and use &ldquo;Open with&rdquo;.</p>
           </div>
         </li>
       </ol>
 
       <div class="notice rise">
-        <h3>先に知っておいてほしいこと</h3>
-        <p>Windows 10 / 11 の64bit版専用です。Mac と Linux には対応していません。</p>
-        <p>数千枚を一度に読み込むとサムネイルの生成に時間がかかります。ページ数の多いPDFも、最初の表示までしばらくかかることがあります。</p>
-        <p>LAN共有は、初回にWindowsのファイアウォールで許可を押す必要があります。押していない場合、QRは正常に出るのに繋がりません。</p>
+        <h3>Before you start</h3>
+        <p>64-bit Windows 10 and 11 only. There is no Mac or Linux build.</p>
+        <p>Loading several thousand images at once takes a while to build the thumbnails. A PDF with many pages can also be slow to appear the first time.</p>
+        <p>Network sharing needs Windows firewall permission the first time you use it. Until you grant it, the QR code appears as normal but nothing connects.</p>
       </div>
     </div>
   </section>
 
   <section class="report" id="report">
     <div class="wrap">
-      <h2 class="rise">不具合・要望</h2>
+      <h2 class="rise">Bugs and requests</h2>
       <p class="intro rise">
-        開けないファイル、表示の崩れ、「これができたら」と思ったこと。どれも助かります。
-        アプリのヘルプ画面から開くと、バージョンなどが下の欄に自動で入ります。
+        A file that will not open, something drawn wrong, a feature you wish existed &mdash;
+        all of it helps. Opening this page from the app&rsquo;s help screen fills in the
+        version details below automatically.
       </p>
 
       <form class="form rise" id="reportForm" novalidate>
         <div class="field">
-          <label for="body">内容</label>
+          <label for="body">What happened</label>
           <textarea id="body" name="body" required
-            placeholder="うまくいかないこと、こうなってほしいこと、どちらでも。両方でも構いません。&#10;&#10;例）PSDの入ったフォルダを4分割の左上に入れて、ホイールで送っていたら3枚目で表示が消えた&#10;例）パネルごとに表示倍率を覚えていてほしい"></textarea>
+            placeholder="Something that is not working, something you would like added, or both.&#10;&#10;e.g. I dropped a folder of PSDs into the top left of a 4-panel layout, scrolled through, and the third one went blank&#10;e.g. I would like each panel to remember its own zoom level"></textarea>
         </div>
 
         <div class="field">
-          <label for="log">エラーの記録（任意）</label>
+          <label for="log">Error log (optional)</label>
           <textarea id="log" name="log" class="log"
-            placeholder="アプリでコピーした記録を Ctrl+V で貼り付けてください。"></textarea>
-          <p class="hint">記録にはファイルのパスが含まれることがあります。見て、消したいところがあれば消してから送ってください。</p>
+            placeholder="Paste the log you copied from the app with Ctrl+V."></textarea>
+          <p class="hint">Logs can contain file paths. Have a look, and delete anything you would rather not send.</p>
         </div>
 
         <div class="field">
-          <label for="contact">返信先（任意）</label>
-          <input type="email" id="contact" name="contact" placeholder="返事が要るときだけ">
+          <label for="contact">Email (optional)</label>
+          <input type="email" id="contact" name="contact" placeholder="Only if you would like a reply">
         </div>
 
         <div class="field">
-          <label for="diag">一緒に送られる情報</label>
+          <label for="diag">Sent along with your message</label>
           <div class="diag" id="diag" contenteditable="true" spellcheck="false" role="textbox" aria-multiline="true"></div>
-          <p class="hint">この欄も直せます。送りたくないものは消してください。</p>
+          <p class="hint">This box is editable too &mdash; remove anything you do not want to send.</p>
         </div>
 
         <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-        <button type="submit" class="submit">送信する</button>
+        <button type="submit" class="submit">Send</button>
         <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         <p class="form-note" id="formNote"></p>
       </form>
@@ -751,15 +753,15 @@ footer a:hover { color: var(--text); }
 
   <section class="closing">
     <div class="wrap">
-      <h2 class="rise">確認を、もっと速く。</h2>
+      <h2 class="rise">Get through the checking faster.</h2>
       <div class="cta-row rise">
         <a class="download" href="https://github.com/saori-subaru/yaeview/releases/latest" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 20h16"/>
           </svg>
-          Windows版をダウンロード
+          Download for Windows
         </a>
-        <p class="meta"><b data-version>v0.1.19</b> ／ 無償のテスト版です</p>
+        <p class="meta"><b data-version>v0.1.19</b> / Free while in testing</p>
       </div>
     </div>
   </section>
@@ -770,15 +772,14 @@ footer a:hover { color: var(--text); }
     <span>Yae View</span>
     <span class="meta" data-version>v0.1.19</span>
     <span class="sep"></span>
-    <a href="https://github.com/saori-subaru/yaeview/releases" rel="noopener">リリース一覧</a>
+    <a href="https://github.com/saori-subaru/yaeview/releases" rel="noopener">All releases</a>
   </div>
 </footer>
 
 <script>
-// Japanese line-breaking and glyph selection want the document language, and
-// the page ships as a fragment (an artifact host supplies <html>), so it is
-// set here rather than as an attribute.
-document.documentElement.lang = "ja";
+// The page ships as a fragment (an artifact host supplies <html>), so the
+// document language is set here rather than as an attribute.
+document.documentElement.lang = "en";
 
 /* ---------------------------------------------------------------
    Release details.
@@ -793,7 +794,7 @@ const showRelease = ({ version, size, url }) => {
   for (const el of document.querySelectorAll("[data-version]")) el.textContent = "v" + version;
   for (const el of document.querySelectorAll("[data-version-plain]")) el.textContent = version;
   for (const el of document.querySelectorAll("[data-size]")) {
-    el.textContent = size ? `・約${Math.round(size / 1e6)}MB` : "";
+    el.textContent = size ? ` · ${Math.round(size / 1e6)} MB` : "";
   }
   if (url) {
     for (const a of document.querySelectorAll("a.download")) {
@@ -832,10 +833,8 @@ fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
    opens a pre-filled mail draft instead - the same thing the app does
    today - so the page is never a dead end.
    --------------------------------------------------------------- */
-/* 送信先。Apps Script をウェブアプリとしてデプロイして出てくる
-   ".../exec" で終わるURLを入れる。中身は site/form-backend.gs。
-
-   空の間はメールの下書きが開くので、設定前でも行き止まりにはならない。 */
+/* The same endpoint as the Japanese page: one Apps Script deployment, one
+   sheet. Reports arrive in whichever language they were written in. */
 const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzQ_WjLOEFma43XU1QIRIuZpOA1nDnc70sFH0w8pZQGjc2hPjCbr9KJV1woaWO-e3-scg/exec";
 
 const REPORT_TO = ["yaeview", "gmail.com"].join("@");
@@ -848,20 +847,20 @@ if (form) {
 
   // Whatever the app puts in the query string is shown, so the two sides
   // never have to agree on a fixed list of parameter names.
-  const LABELS = { v: "バージョン", version: "バージョン", build: "ビルド",
-                   os: "OS", ua: "環境", ext: "対象の拡張子", from: "送信元" };
+  const LABELS = { v: "Version", version: "Version", build: "Build",
+                   os: "OS", ua: "System", ext: "File type", from: "From" };
   const params = new URLSearchParams(location.search);
   const lines = [];
   for (const [k, val] of params) {
     if (val) lines.push((LABELS[k] || k) + ": " + val);
   }
-  if (!params.has("ua")) lines.push("環境: " + navigator.userAgent);
-  if (!params.has("from")) lines.push("送信元: " + ([...params].length ? "アプリ" : "サイト"));
+  if (!params.has("ua")) lines.push("System: " + navigator.userAgent);
+  if (!params.has("from")) lines.push("From: " + ([...params].length ? "app" : "site"));
   diag.textContent = lines.join("\n");
 
   note.textContent = FORM_ENDPOINT
-    ? "送信すると、この内容が開発者に届きます。"
-    : "いまは送信先が未設定のため、押すとメールの下書きが開きます。";
+    ? "This goes straight to the developer."
+    : "No endpoint is set up yet, so this opens a pre-filled email instead.";
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -870,54 +869,55 @@ if (form) {
 
     const body = form.body.value.trim();
     if (!body) {
-      status.textContent = "内容を書いてください。";
+      status.textContent = "Please write something first.";
       status.dataset.tone = "ng";
       form.body.focus();
       return;
     }
     if (form._gotcha.value) return;              // a bot filled the hidden field
 
+    // The field names stay Japanese on purpose: form-backend.gs writes them
+    // into the sheet's existing Japanese columns.
     const data = new FormData();
     data.append("内容", body);
     data.append("記録", form.log.value.trim());
     data.append("返信先", form.contact.value.trim());
     data.append("環境", diag.textContent.trim());
-    data.append("subject", "YAE View の不具合・要望");
+    data.append("subject", "YAE View feedback (EN)");
 
     if (!FORM_ENDPOINT) {
       const text = [body, "", "----------------", diag.textContent.trim(),
                     form.log.value.trim()].join("\n");
       location.href = "mailto:" + REPORT_TO
-        + "?subject=" + encodeURIComponent("YAE View の不具合・要望")
+        + "?subject=" + encodeURIComponent("YAE View feedback (EN)")
         + "&body=" + encodeURIComponent(text.slice(0, 1800));
       return;
     }
 
     const btn = form.querySelector(".submit");
     btn.disabled = true;
-    btn.textContent = "送信中…";
+    btn.textContent = "Sending…";
     try {
-      // FormData のみ、独自ヘッダーなし。こうしておくとブラウザが
-      // 事前確認の問い合わせを挟まないので、Apps Script 側で
-      // 受け口を余分に用意しなくて済む
+      // FormData only, no custom headers. That keeps the browser from sending
+      // a preflight request, so Apps Script needs no extra handler.
       const res = await fetch(FORM_ENDPOINT, { method: "POST", body: data });
       if (!res.ok) throw new Error(res.status);
 
-      // シートに書けなかった場合は ok:false が返る。
-      // 読めなかったときは黙って成功扱いにする（送信自体は届いている）
+      // ok:false comes back when the row could not be written. An unreadable
+      // reply is treated as success - the POST itself did arrive.
       let payload = null;
       try { payload = await res.json(); } catch (ignored) {}
       if (payload && payload.ok === false) throw new Error(payload.error || "rejected");
       form.reset();
       diag.textContent = lines.join("\n");
-      status.textContent = "送信しました。ありがとうございます。";
+      status.textContent = "Sent — thank you.";
       status.dataset.tone = "ok";
     } catch (err) {
-      status.textContent = "送信できませんでした。お手数ですが " + REPORT_TO + " まで直接お願いします。";
+      status.textContent = "Could not send. Please email " + REPORT_TO + " directly instead.";
       status.dataset.tone = "ng";
     } finally {
       btn.disabled = false;
-      btn.textContent = "送信する";
+      btn.textContent = "Send";
     }
   });
 }
