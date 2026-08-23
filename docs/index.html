@@ -287,6 +287,19 @@ p { margin: 0; }
 }
 .step ul li b { color: var(--text); font-weight: 600; }
 
+/* 名前の由来。読み飛ばしてよい一行なので、本文より一段落とす。
+   間隔と罫線は .fmt-group と同じ。max-width を外すのは、
+   .step .copy p の 34em だと罫線だけ短くなって浮くため */
+.step .copy p.origin {
+  max-width: none;
+  margin-top: 26px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--muted);
+}
+.step .copy p.origin b { color: var(--text); font-weight: 600; }
+
 .shot { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--surface); }
 .shot img { width: 100%; }
 .shot-pair { display: grid; gap: 14px; }
@@ -562,6 +575,7 @@ footer a:hover { color: var(--text); }
           <li><kbd>Shift</kbd>＋ドラッグで<b>複数選択</b>、まとめて削除</li>
           <li>各パネルが<b>別々のフォルダ</b>を持てます</li>
         </ul>
+        <p class="origin"><b>八重（やえ）</b>— 八つ重ね。最大8枚を重ねて並べられることから、この名前にしました。</p>
       </div>
       <div class="shot"><img src="img/grid.jpg" alt="8分割で画像・動画・PDFを並べた画面" loading="lazy"></div>
     </div>
