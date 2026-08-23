@@ -7,7 +7,7 @@
 ## ダウンロード
 
 [最新版のリリース](https://github.com/saori-subaru/yaeview/releases/latest)から
-`yae-view-tauri_<バージョン>_x64-setup.exe` を取得してください。
+`YAEView_<バージョン>_x64-setup.exe` を取得してください。
 
 Windows 10 / 11（64bit）専用です。Mac と Linux には対応していません。
 

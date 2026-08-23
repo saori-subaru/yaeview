@@ -529,6 +529,10 @@ footer a:hover { color: var(--text); }
   <section class="thesis">
     <div class="wrap">
       <h2 class="rise">1枚ずつ開いて、閉じて、また開く。<br>その往復をなくすために作りました。</h2>
+      <p class="lede rise">
+        アニメーションの仕事で、毎日この往復をしていました。
+        現場で使うために作ったものを、そのまま製品にしています。
+      </p>
       <div class="pillars rise">
         <div class="pillar">
           <h3>並べたまま比べる</h3>
@@ -738,7 +742,7 @@ footer a:hover { color: var(--text); }
         <li>
           <div>
             <h3>インストーラをダウンロードして実行</h3>
-            <p><code style="font-family:var(--mono)">yae-view-tauri_<span data-version-plain>0.1.19</span>_x64-setup.exe</code> をダブルクリックします。</p>
+            <p><code style="font-family:var(--mono)" data-setup-name>YAEView_0.1.23_x64-setup.exe</code> をダブルクリックします。</p>
           </div>
         </li>
         <li>
@@ -885,12 +889,14 @@ for (const box of document.querySelectorAll(".player")) {
    RELEASE is the fallback shown before - or instead of - the lookup
    below. Keep it roughly current, but it no longer has to be exact.
    --------------------------------------------------------------- */
-const RELEASE = { version: "0.1.19" };
+const RELEASE = { version: "0.1.23", name: "YAEView_0.1.23_x64-setup.exe" };
 const REPO = "saori-subaru/yaeview";
 
-const showRelease = ({ version, size, url }) => {
+const showRelease = ({ version, size, url, name }) => {
   for (const el of document.querySelectorAll("[data-version]")) el.textContent = "v" + version;
-  for (const el of document.querySelectorAll("[data-version-plain]")) el.textContent = version;
+  // インストーラ名は productName から作られるので、版から組み立てない。
+  // 実物の名前をそのまま入れる
+  if (name) for (const el of document.querySelectorAll("[data-setup-name]")) el.textContent = name;
   for (const el of document.querySelectorAll("[data-size]")) {
     el.textContent = size ? `・約${Math.round(size / 1e6)}MB` : "";
   }
@@ -917,7 +923,8 @@ fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
     showRelease({
       version: String(rel.tag_name || "").replace(/^v/, "") || RELEASE.version,
       size: exe.size,
-      url: exe.browser_download_url
+      url: exe.browser_download_url,
+      name: exe.name
     });
   })
   .catch(() => { /* keep the fallback */ });
