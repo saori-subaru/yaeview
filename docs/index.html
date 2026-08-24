@@ -287,19 +287,6 @@ p { margin: 0; }
 }
 .step ul li b { color: var(--text); font-weight: 600; }
 
-/* 名前の由来。読み飛ばしてよい一行なので、本文より一段落とす。
-   間隔と罫線は .fmt-group と同じ。max-width を外すのは、
-   .step .copy p の 34em だと罫線だけ短くなって浮くため */
-.step .copy p.origin {
-  max-width: none;
-  margin-top: 26px;
-  padding-top: 26px;
-  border-top: 1px solid var(--line);
-  font-size: 14px;
-  color: var(--muted);
-}
-.step .copy p.origin b { color: var(--text); font-weight: 600; }
-
 .shot { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--surface); }
 .shot img { width: 100%; }
 .shot-pair { display: grid; gap: 14px; }
@@ -529,10 +516,6 @@ footer a:hover { color: var(--text); }
   <section class="thesis">
     <div class="wrap">
       <h2 class="rise">1枚ずつ開いて、閉じて、また開く。<br>その往復をなくすために作りました。</h2>
-      <p class="lede rise">
-        アニメーションの仕事で、毎日この往復をしていました。
-        現場で使うために作ったものを、そのまま製品にしています。
-      </p>
       <div class="pillars rise">
         <div class="pillar">
           <h3>並べたまま比べる</h3>
@@ -579,7 +562,6 @@ footer a:hover { color: var(--text); }
           <li><kbd>Shift</kbd>＋ドラッグで<b>複数選択</b>、まとめて削除</li>
           <li>各パネルが<b>別々のフォルダ</b>を持てます</li>
         </ul>
-        <p class="origin"><b>八重（やえ）</b>— 八つ重ね。最大8枚を重ねて並べられることから、この名前にしました。</p>
       </div>
       <div class="shot"><img src="img/grid.jpg" alt="8分割で画像・動画・PDFを並べた画面" loading="lazy"></div>
     </div>
@@ -668,6 +650,18 @@ footer a:hover { color: var(--text); }
           <h3>常駐して、すぐ呼び出す</h3>
           <p>×で閉じてもタスクトレイに残ります。<kbd>Ctrl</kbd>＋<kbd>Shift</kbd>＋<kbd>A</kbd>でいつでも前に出せます（変更可）。</p>
         </div>
+        <div class="card">
+          <h3>3色のしおり</h3>
+          <p>黄・赤・緑で印を付けられます。直しの箇所と確認済みを色で分けておけば、あとから前後のしおりへ飛ぶだけで見て回れます。</p>
+        </div>
+        <div class="card">
+          <h3>コマ数を出す</h3>
+          <p>いま何コマ目かを動画の上に出します。<b>36f (1s+12k) / 24fps</b> のように秒とコマで読めます。書き出した絵にも同じ番号が入るので、似た絵が並んでも見分けられます。</p>
+        </div>
+        <div class="card">
+          <h3>速さを変えて見る</h3>
+          <p>再生速度は0.1倍から4倍まで。送り戻しの秒数も選べます。動きを追うときは遅く、長い収録を流すときは速く。</p>
+        </div>
       </div>
     </div>
   </section>
@@ -742,7 +736,7 @@ footer a:hover { color: var(--text); }
         <li>
           <div>
             <h3>インストーラをダウンロードして実行</h3>
-            <p><code style="font-family:var(--mono)" data-setup-name>YAEView_0.1.23_x64-setup.exe</code> をダブルクリックします。</p>
+            <p><code style="font-family:var(--mono)">yae-view-tauri_<span data-version-plain>0.1.19</span>_x64-setup.exe</code> をダブルクリックします。</p>
           </div>
         </li>
         <li>
@@ -889,14 +883,12 @@ for (const box of document.querySelectorAll(".player")) {
    RELEASE is the fallback shown before - or instead of - the lookup
    below. Keep it roughly current, but it no longer has to be exact.
    --------------------------------------------------------------- */
-const RELEASE = { version: "0.1.23", name: "YAEView_0.1.23_x64-setup.exe" };
+const RELEASE = { version: "0.1.19" };
 const REPO = "saori-subaru/yaeview";
 
-const showRelease = ({ version, size, url, name }) => {
+const showRelease = ({ version, size, url }) => {
   for (const el of document.querySelectorAll("[data-version]")) el.textContent = "v" + version;
-  // インストーラ名は productName から作られるので、版から組み立てない。
-  // 実物の名前をそのまま入れる
-  if (name) for (const el of document.querySelectorAll("[data-setup-name]")) el.textContent = name;
+  for (const el of document.querySelectorAll("[data-version-plain]")) el.textContent = version;
   for (const el of document.querySelectorAll("[data-size]")) {
     el.textContent = size ? `・約${Math.round(size / 1e6)}MB` : "";
   }
@@ -923,8 +915,7 @@ fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
     showRelease({
       version: String(rel.tag_name || "").replace(/^v/, "") || RELEASE.version,
       size: exe.size,
-      url: exe.browser_download_url,
-      name: exe.name
+      url: exe.browser_download_url
     });
   })
   .catch(() => { /* keep the fallback */ });

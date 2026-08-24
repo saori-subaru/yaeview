@@ -287,19 +287,6 @@ p { margin: 0; }
 }
 .step ul li b { color: var(--text); font-weight: 600; }
 
-/* 名前の由来。読み飛ばしてよい一行なので、本文より一段落とす。
-   間隔と罫線は .fmt-group と同じ。max-width を外すのは、
-   .step .copy p の 34em だと罫線だけ短くなって浮くため */
-.step .copy p.origin {
-  max-width: none;
-  margin-top: 26px;
-  padding-top: 26px;
-  border-top: 1px solid var(--line);
-  font-size: 14px;
-  color: var(--muted);
-}
-.step .copy p.origin b { color: var(--text); font-weight: 600; }
-
 .shot { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--surface); }
 .shot img { width: 100%; }
 .shot-pair { display: grid; gap: 14px; }
@@ -530,10 +517,6 @@ footer a:hover { color: var(--text); }
   <section class="thesis">
     <div class="wrap">
       <h2 class="rise">Open one file, close it, open the next.<br>Yae View exists to end that round trip.</h2>
-      <p class="lede rise">
-        I made that round trip every day, working in animation.
-        I built Yae View to use at work &mdash; and it is still that same tool.
-      </p>
       <div class="pillars rise">
         <div class="pillar">
           <h3>Compare without closing</h3>
@@ -580,7 +563,6 @@ footer a:hover { color: var(--text); }
           <li><kbd>Shift</kbd>-drag to <b>select several</b> and delete them together</li>
           <li>Each panel holds <b>its own folder</b></li>
         </ul>
-        <p class="origin"><b>Yae</b> (八重) is Japanese for <i>eightfold</i> — eight layers, one over another. Eight panels; hence the name.</p>
       </div>
       <div class="shot"><img src="img/grid.jpg" alt="Images, video and a PDF arranged across eight panels" loading="lazy"></div>
     </div>
@@ -669,6 +651,18 @@ footer a:hover { color: var(--text); }
           <h3>Always a keystroke away</h3>
           <p>Closing the window leaves Yae View in the system tray. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> brings it back, and the shortcut can be changed.</p>
         </div>
+        <div class="card">
+          <h3>Three bookmark colours</h3>
+          <p>Mark pages in yellow, red or green. Keep fixes and checked pages in different colours, then jump between bookmarks to walk through them.</p>
+        </div>
+        <div class="card">
+          <h3>Show the frame number</h3>
+          <p>The current frame is shown over the video, as <b>36f (1s+12k) / 24fps</b> - seconds and frames. Exported stills carry the same number, so near-identical drawings stay tellable apart.</p>
+        </div>
+        <div class="card">
+          <h3>Play at your own speed</h3>
+          <p>Playback runs from 0.1x to 4x, and the skip amount is yours to choose. Slow for following the motion, fast for skimming a long recording.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -743,7 +737,7 @@ footer a:hover { color: var(--text); }
         <li>
           <div>
             <h3>Download the installer and run it</h3>
-            <p>Double-click <code style="font-family:var(--mono)" data-setup-name>YAEView_0.1.23_x64-setup.exe</code>.</p>
+            <p>Double-click <code style="font-family:var(--mono)">yae-view-tauri_<span data-version-plain>0.1.19</span>_x64-setup.exe</code>.</p>
           </div>
         </li>
         <li>
@@ -890,14 +884,12 @@ for (const box of document.querySelectorAll(".player")) {
    RELEASE is the fallback shown before - or instead of - the lookup
    below. Keep it roughly current, but it no longer has to be exact.
    --------------------------------------------------------------- */
-const RELEASE = { version: "0.1.23", name: "YAEView_0.1.23_x64-setup.exe" };
+const RELEASE = { version: "0.1.19" };
 const REPO = "saori-subaru/yaeview";
 
-const showRelease = ({ version, size, url, name }) => {
+const showRelease = ({ version, size, url }) => {
   for (const el of document.querySelectorAll("[data-version]")) el.textContent = "v" + version;
-  // The installer name comes from productName, so do not rebuild it from
-  // the version. Show the real asset name instead.
-  if (name) for (const el of document.querySelectorAll("[data-setup-name]")) el.textContent = name;
+  for (const el of document.querySelectorAll("[data-version-plain]")) el.textContent = version;
   for (const el of document.querySelectorAll("[data-size]")) {
     el.textContent = size ? ` · ${Math.round(size / 1e6)} MB` : "";
   }
@@ -924,8 +916,7 @@ fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
     showRelease({
       version: String(rel.tag_name || "").replace(/^v/, "") || RELEASE.version,
       size: exe.size,
-      url: exe.browser_download_url,
-      name: exe.name
+      url: exe.browser_download_url
     });
   })
   .catch(() => { /* keep the fallback */ });
