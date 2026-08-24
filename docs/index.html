@@ -291,6 +291,20 @@ p { margin: 0; }
 .shot img { width: 100%; }
 .shot-pair { display: grid; gap: 14px; }
 
+/* Where the name comes from - a line you may skip, so it sits below the copy
+   rather than inside it. Spacing and rule match .fmt-group. max-width is
+   dropped because .step .copy p's 34em would leave the rule short and
+   floating, narrower than the text above it. */
+.step .copy p.origin {
+  max-width: none;
+  margin-top: 26px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--muted);
+}
+.step .copy p.origin b { color: var(--text); font-weight: 600; }
+
 @media (max-width: 860px) {
   .step-grid { grid-template-columns: 1fr; }
   .step:nth-of-type(even) .step-grid > .copy { order: 0; }
@@ -562,6 +576,7 @@ footer a:hover { color: var(--text); }
           <li><kbd>Shift</kbd>＋ドラッグで<b>複数選択</b>、まとめて削除</li>
           <li>各パネルが<b>別々のフォルダ</b>を持てます</li>
         </ul>
+        <p class="origin"><b>八重（やえ）</b>— 八つ重ね。最大8枚を重ねて並べられることから、この名前にしました。</p>
       </div>
       <div class="shot"><img src="img/grid.jpg" alt="8分割で画像・動画・PDFを並べた画面" loading="lazy"></div>
     </div>

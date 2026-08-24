@@ -1,0 +1,230 @@
+<meta charset="utf-8">
+<title>プライバシーポリシー — YAE View</title>
+<meta name="description" content="YAE View のプライバシーポリシー。個人情報の収集・送信は行いません。">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="img/icon.png">
+<link rel="alternate" hreflang="ja" href="https://yaeview.com/privacy.html">
+<link rel="alternate" hreflang="en" href="https://yaeview.com/en/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://yaeview.com/privacy.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500;600;700&display=swap">
+
+<style>
+:root {
+  --ink:        #08090b;
+  --surface:    #101216;
+  --raised:     #181c22;
+  --line:       rgba(233, 238, 245, 0.10);
+  --line-firm:  rgba(233, 238, 245, 0.20);
+  --text:       #e8eaed;
+  --muted:      rgba(233, 238, 245, 0.56);
+  --faint:      rgba(233, 238, 245, 0.34);
+  --accent:     #4aa8e0;
+  --accent-tint: rgba(74, 168, 224, 0.10);
+  --good:       #4cc38a;
+
+  --sans: "IBM Plex Sans JP", "Yu Gothic UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+
+  --gutter: clamp(20px, 5vw, 72px);
+  --measure: 36em;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: clamp(40px, 8vw, 88px) var(--gutter) 96px;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+main { max-width: var(--measure); margin: 0 auto; }
+
+a { color: var(--accent); }
+
+.back {
+  display: inline-block;
+  margin-bottom: 40px;
+  color: var(--muted);
+  font-size: 14px;
+  text-decoration: none;
+}
+.back:hover { color: var(--text); }
+
+h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.updated {
+  margin: 0 0 48px;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+h2 {
+  margin: 56px 0 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 18px; }
+
+ul { margin: 0 0 18px; padding-left: 1.3em; }
+li { margin-bottom: 8px; }
+
+code {
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: var(--raised);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.88em;
+  word-break: break-all;
+}
+
+.lead {
+  margin: 0 0 18px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--good);
+  border-radius: 0 4px 4px 0;
+  background: var(--surface);
+  font-size: 17px;
+}
+
+.muted { color: var(--muted); }
+
+footer {
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--faint);
+  font-size: 14px;
+}
+</style>
+
+<main>
+  <a class="back" href="./">← YAE View</a>
+
+  <h1>プライバシーポリシー</h1>
+  <p class="updated">最終更新: 2026-08-24</p>
+
+  <p class="lead">
+    YAE View は、利用者の個人情報を収集しません。
+    利用状況の記録、解析、広告のための仕組みは一切入っていません。
+    開いたファイルの中身が制作者や第三者へ送られることもありません。
+  </p>
+
+  <h2>収集しないもの</h2>
+  <p>YAE View は次のいずれも行いません。</p>
+  <ul>
+    <li>氏名・メールアドレス・住所などの個人情報の入力を求めること</li>
+    <li>アカウントの作成やサインイン</li>
+    <li>利用状況・操作履歴・不具合情報の外部への送信</li>
+    <li>開いたファイルやその一覧の外部への送信</li>
+    <li>広告の表示、および広告のための識別子の利用</li>
+  </ul>
+
+  <h2>端末の中に保存されるもの</h2>
+  <p>
+    アプリの動作に必要なデータは、すべて利用者の端末の中だけに保存されます。
+    外部へは送られません。
+  </p>
+  <ul>
+    <li><code>%APPDATA%\YaeView\projects.json</code> — プロジェクト（開いたファイルのパスと並び）</li>
+    <li><code>%APPDATA%\YaeView\annotations.json</code> — 手書きメモ・しおり</li>
+    <li><code>%APPDATA%\YaeView\annotation-assets\</code> — メモに貼り付けた画像</li>
+    <li><code>%APPDATA%\YaeView\config.json</code> — アプリの設定</li>
+    <li><code>%APPDATA%\YaeView\window_state.json</code> — 窓の大きさと位置</li>
+    <li><code>%APPDATA%\YaeView\logs\</code> — 起動と異常の記録（ファイルの中身は含みません）</li>
+    <li><code>%LOCALAPPDATA%</code> の下 — 表示を速くするための縮小画像。消しても中身は失われません</li>
+  </ul>
+  <p class="muted">
+    これらを削除するには、アプリを終了してから上記のフォルダを削除してください。
+    アンインストールしても自動では消えません。
+  </p>
+
+  <h2>開いたファイルの扱い</h2>
+  <p>
+    画像・動画・PDF などのファイルは、表示のために読み取るだけです。
+    利用者が保存や書き出しを指示したときを除き、書き換えることはありません。
+    ファイルの中身がアプリの外へ出ることはありません。
+  </p>
+
+  <h2>ネットワークを使う場面</h2>
+  <p>YAE View がネットワークに触れるのは、次の場合だけです。</p>
+
+  <p><strong>1. 別の端末との共有（利用者が開始したときだけ）</strong></p>
+  <ul>
+    <li>「別の端末と共有」を実行している間だけ、同じネットワーク内にファイルを配信します</li>
+    <li>配信先は同一ネットワーク内に限られます。インターネットへは公開されません</li>
+    <li>URL には推測しにくい文字列が含まれ、共有を終了すると無効になります</li>
+    <li>制作者を含む第三者のサーバーは経由しません</li>
+  </ul>
+
+  <p><strong>2. 更新の確認</strong></p>
+  <ul>
+    <li>公式サイトからダウンロードした版は、新しい版があるかを GitHub に問い合わせます</li>
+    <li>送信されるのは現在のバージョン番号だけです。個人情報は含まれません</li>
+    <li>Microsoft Store 版はこの機能を持ちません。更新はストアが行います</li>
+  </ul>
+
+  <p><strong>3. ヘルプ画面のリンク</strong></p>
+  <ul>
+    <li>押すと既定のブラウザで公式サイトが開きます。アプリからの送信はありません</li>
+  </ul>
+
+  <h2>第三者への提供</h2>
+  <p>
+    収集しているものが無いため、第三者へ提供するデータもありません。
+    データの販売・共有・分析委託のいずれも行いません。
+  </p>
+
+  <h2>お子さまの利用について</h2>
+  <p>
+    YAE View は年齢に関する情報を収集しません。
+    特定の年齢層を対象とした機能や、そのための情報収集も行いません。
+  </p>
+
+  <h2>同梱しているソフトウェア</h2>
+  <p>
+    YAE View には ImageMagick、pdf.js などの他者のソフトウェアが含まれています。
+    いずれも端末内で動作し、外部へ通信するようには使用していません。
+    著作権表示とライセンス本文は、ヘルプ画面の「このアプリについて」から確認できます。
+  </p>
+
+  <h2>変更について</h2>
+  <p>
+    このポリシーを変更した場合は、このページの最終更新日を改めます。
+    重要な変更があるときは、リリースノートにも記載します。
+  </p>
+
+  <h2>お問い合わせ</h2>
+  <p>
+    このポリシーに関するご質問は
+    <a href="mailto:support@yaeview.com">support@yaeview.com</a>
+    へお寄せください。
+  </p>
+  <p class="muted">
+    GitHub をお使いの方は
+    <a href="https://github.com/saori-subaru/yaeview/issues">Issues</a>
+    でも受け付けています。
+  </p>
+
+  <footer>
+    YAE View — <a href="./">日本語</a> / <a href="en/privacy.html">English</a>
+  </footer>
+</main>

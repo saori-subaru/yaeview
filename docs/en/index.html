@@ -291,6 +291,20 @@ p { margin: 0; }
 .shot img { width: 100%; }
 .shot-pair { display: grid; gap: 14px; }
 
+/* Where the name comes from - a line you may skip, so it sits below the copy
+   rather than inside it. Spacing and rule match .fmt-group. max-width is
+   dropped because .step .copy p's 34em would leave the rule short and
+   floating, narrower than the text above it. */
+.step .copy p.origin {
+  max-width: none;
+  margin-top: 26px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--muted);
+}
+.step .copy p.origin b { color: var(--text); font-weight: 600; }
+
 @media (max-width: 860px) {
   .step-grid { grid-template-columns: 1fr; }
   .step:nth-of-type(even) .step-grid > .copy { order: 0; }
@@ -563,6 +577,7 @@ footer a:hover { color: var(--text); }
           <li><kbd>Shift</kbd>-drag to <b>select several</b> and delete them together</li>
           <li>Each panel holds <b>its own folder</b></li>
         </ul>
+        <p class="origin"><b>Yae</b> (八重) is Japanese for <i>eightfold</i> — eight layers, one over another. Eight panels; hence the name.</p>
       </div>
       <div class="shot"><img src="img/grid.jpg" alt="Images, video and a PDF arranged across eight panels" loading="lazy"></div>
     </div>
