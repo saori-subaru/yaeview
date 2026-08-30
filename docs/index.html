@@ -262,17 +262,15 @@ p { margin: 0; }
 .step { padding: clamp(56px, 8vw, 100px) 0; border-top: 1px solid var(--line); }
 .step-grid {
   display: grid;
-  /* 11 : 13. The copy column has to clear --measure (34em = 408px at
-     1440); 5fr left it at 402 and the paragraphs never reached their
-     own width. 11fr gives 442. */
-  grid-template-columns: minmax(0, 11fr) minmax(0, 13fr);
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: clamp(32px, 5vw, 72px);
   align-items: center;
 }
-/* Mirrored rows: `order` moves the copy across but leaves the track sizes
-   alone, so the shot lands in the narrow column and every left-hand image
-   comes out smaller. Swap the widths to match. */
-.step:nth-of-type(even) .step-grid { grid-template-columns: minmax(0, 13fr) minmax(0, 11fr); }
+/* Mirrored rows keep the track sizes, so the shot lands in the 5fr column
+   and comes out smaller on the left: 560px against 400px. Left as it is on
+   purpose - trying whether the alternation reads as rhythm. Measured, not
+   guessed: swapping the widths evens them out, and the copy column then
+   sits at 402px against a 408px --measure. */
 .step:nth-of-type(even) .step-grid > .copy { order: 2; }
 .step h2 { font-size: clamp(26px, 3.4vw, 40px); letter-spacing: -0.032em; line-height: 1.28; }
 .step .copy p { margin-top: 20px; color: var(--muted); max-width: var(--measure); }
